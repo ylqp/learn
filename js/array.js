@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // let msgList = [{content: "1"}, {content: "2"}]
 
