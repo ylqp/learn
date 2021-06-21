@@ -1,0 +1,51 @@
+body {
+    font-size: 16px;
+}
+#btnCss {
+    padding: 6px 16px;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    border-radius: 4px;
+    box-shadow: 0 1px 5px gray;
+    color: white;
+    text-shadow: 0 -1px 1px #335166;
+    font-size: 100%;
+    line-height: 1.5;
+}
+#btnCss {
+    padding: .3em .8em;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    border-radius: .2em;
+    box-shadow: 0 .05em .25em gray;
+    color: white;
+    text-shadow: 0 -.05em .05em #335166;
+    font-size: 125%;
+    line-height: 1.5;
+}
+.langC {
+    height: 100px;
+    width: 200px;
+    background: gray;
+    border-radius: 100% 0 0 0;
+}
+.langC2 {
+    height: 100px;
+    width: 200px;
+    background: #ccc;
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+}
+.btnCss {
+    margin-top: 50px;
+    width: 100px;
+    height: 40px;
+    background: #58a linear-gradient(#77a0bb, #58a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transform: skewX(-20deg);
+}
+.btnCss > div {
+    transform: skewX(20deg);
+}

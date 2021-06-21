@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="__input">
+    </div>
+    <script>
+      let debnounce = (fun,time) => {
+        let timer;
+        return function () {
+          //再次执行，先清除上次定时器，重新计时
+          if (timer) {
+            clearTimeout(timer)
+          }
+          timer = setTimeout(() => {
+            fun.apply(this,arguments)
+          },time)
+        }
+      }
+      let change = e => {
+        let { value } = e.targer
+        //请求接口
+      }
+      __input.oninput = debnounce(change,200)
+    </script>
+</body>
+</html>
