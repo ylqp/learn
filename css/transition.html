@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        .test {
+            height: 100px;
+            width: 100px;
+            background-color: #006AFF;
+            /* transition-duration: 1s;
+            transition-property: all;
+            transition-timing-function: ease;
+            transition-delay: 0s; */
+            transition: 1s; 
+            transition-property: all;
+            /* transition-delay: 500ms; */
+            transition-timing-function: cubic-bezier(x1,y1,x2,y2);
+        }
+        /* .test:hover {
+            width: 500px;
+            background-color: pink;
+        } */
+        .test.trans {
+            width: 500px;
+            background-color: pink;
+        }
+        img{
+            transition: 1s; 
+            /* transition-property: all; */
+        }
+        img.trans {
+            transform: rotateY(180deg);
+            /* transition: 1s; */
+        }
+    </style>
+</head>
+<body>
+    <div class="test" id="test" onclick="alert(1)"></div>
+    <div>
+        <img src="../img/icon-menu.png" alt="" id="img">
+    </div>
+    <script>
+        // document.getElementById('test').onclick = function (e) {
+        //     // console.log(e.currentTarget)
+        //     // console.log(this.classList)
+        //     this.classList.toggle('trans')
+        // }
+        // document.getElementById('img').onclick = function (e) {
+        //     // console.log(e.currentTarget)
+        //     // console.log(this.classList)
+        //     this.classList.toggle('trans')
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading</title>
+    <style>
+        .loading{
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            margin-top: 100px;
+            position: relative;
+        }
+        .loading1 .bounce {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border-radius: 50%;
+            opacity: 0.6;
+            background-color: #2692FF;
+            animation: bounce 2.0s infinite ease-in-out;
+        }
+        .loading1 .bounce2 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+        @keyframes bounce {
+            0%{transform:scale(0.0);}
+            50%{transform:scale(1.0);}
+            100%{transform:scale(0.0);}
+        }
+        /* ----------------------第二种---------------------------------------------- */
+        .loading2 {
+            width: 50px;
+            height: 40px;
+            /* text-align: center; */
+        }
+        .loading2 span {
+            width: 5px;
+            height: 100%;
+            display: inline-block;
+            background:#67CF22;
+            animation: mymove 1.2s infinite ease-in-out;
+        }
+        .loading2 >span:nth-child(2) {
+            animation-delay: -1.0s;
+        }
+        .loading2 >span:nth-child(3) {
+            animation-delay: -0.9s;
+        }
+        .loading2 >span:nth-child(4) {
+            animation-delay: -0.8s;
+        }
+        .loading2 >span:nth-child(5) {
+            animation-delay: -0.7s;
+        }
+        @keyframes mymove {
+            0% {transform: scaleY(0.4);}
+            25% {transform: scaleY(1.0);}
+            50% {transform: scaleY(0.4);}
+            75% {transform: scaleY(0.4);}
+            100% {transform: scaleY(0.4);}
+        }
+        /* -------------------------第三种------------------------------------------ */
+        .loading3 {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .circle span {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            background: #2692FF;
+            border-radius: 50%;
+            position: absolute;
+            animation: mycircle 1.2s infinite ease-in-out;
+        }
+        .circle2 {
+            transform: rotateZ(45deg);
+        }
+        .circle3 {
+            transform: rotateZ(90deg);
+        }
+        .circle >span:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+        .circle >span:nth-child(2) {
+            top: 0;
+            right: 0;
+        }
+        .circle >span:nth-child(3) {
+            right: 0;
+            bottom: 0;
+        }
+        .circle >span:nth-child(4) {
+            left: 0;
+            bottom: 0;
+        }
+        .circle2 >span:nth-child(1){
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+       }
+       .circle3 >span:nth-child(1){
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+       }
+       .circle1 >span:nth-child(2){
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+       }
+       .circle2 >span:nth-child(2){
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+       }
+       .circle3 >span:nth-child(2){
+            -webkit-animation-delay: -0.7s;
+            animation-delay: -0.7s;
+       }
+       .circle1 >span:nth-child(3){
+            -webkit-animation-delay: -0.6s;
+            animation-delay: -0.6s;
+       }
+       .circle2 >span:nth-child(3){
+            -webkit-animation-delay: -0.7s;
+            animation-delay: -0.7s;
+       }
+       .circle3 >span:nth-child(3){
+            -webkit-animation-delay: -0.4s;
+            animation-delay: -0.4s;
+       }
+       .circle1 >span:nth-child(4){
+            -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+       }
+       .circle2 >span:nth-child(4){
+            -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s;
+       }
+       .circle3 >span:nth-child(4){
+            -webkit-animation-delay: -0.1s;
+            animation-delay: -0.1s;
+       }
+        @keyframes mycircle{
+            0%{transform:scale(0.0);}
+            40%{transform:scale(1.0);}
+            80%{transform:scale(0.0);}
+            100%{transform:scale(0.0);}
+        }
+        /* ------------------------第四种---------------------- */
+        .loading4{
+            width: 150px;
+            text-align: center;
+        }
+        .loading4 >div{
+            width: 18px;
+            height: 18px;
+            border-radius: 50px;
+            display: inline-block;
+            background-color: #67CF22;
+            animation: three 1.4s infinite ease-in-out;
+        }
+        .loading4 .three1{
+            animation-delay: -0.30s;
+        }
+        .loading4 .three2{
+            animation-delay: -0.15s;
+        }
+        @keyframes three {
+            0%, 80%, 100% {transform: scale(0.0);}
+            40% {transform: scale(1.0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="loading loading1">
+        <div class="bounce bounce1"></div>
+        <div class="bounce bounce2"></div>
+    </div>
+    <div class="loading loading2">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading loading3">
+        <div class="circle circle1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="circle circle2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="circle circle3">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="loading loading4">
+        <div class="three1"></div>
+        <div class="three2"></div>
+        <div class="three3"></div>
+    </div>
+</body>
+</html>
