@@ -58,37 +58,47 @@
 // console.log(Object.getOwnPropertyNames(Person.prototype))
 // console.log(typeof [1,2])
 
-const form = {
-    // 账号信息
-    name: '1',
-    password: '2',
-    confirmPassword: '3',
-    form_enabled: true,
-    image: '',
-    // 所属机构
-    form_org: '',
-    roles: [],
-    // 数据权限
-    // 个人信息
-    realName: '',
-    certificateCode: '',
-    sex: '',
-    birthday: '',
-    mobile: '',
-    email: '',
-    // 扩展属性
+// const form = {
+//     // 账号信息
+//     name: '1',
+//     password: '2',
+//     confirmPassword: '3',
+//     form_enabled: true,
+//     image: '',
+//     // 所属机构
+//     form_org: '',
+//     roles: [],
+//     // 数据权限
+//     // 个人信息
+//     realName: '',
+//     certificateCode: '',
+//     sex: '',
+//     birthday: '',
+//     mobile: '',
+//     email: '',
+//     // 扩展属性
 
+// }
+
+// let obj = {...form}
+// console.log(obj)
+
+// for (key in obj) {
+    
+//     if (key.startsWith('form_')){
+//         delete obj[key]
+//     }
+// }
+// console.log(form)
+// console.log(obj)
+
+let obj = {
+    aa: 123,
+    bb: 234,
+    cc: 345
 }
-
-let obj = {...form}
-console.log(obj)
 
 for (key in obj) {
-    
-    if (key.startsWith('form_')){
-        delete obj[key]
-    }
+    console.log(obj[key])
 }
-console.log(form)
-console.log(obj)
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        /* 横向导航 */
+        /* ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        li {
+            float: left;
+            width: 160px;
+        }
+        li ul {
+            display: none;
+            top: 20px;
+        }
+        li:hover ul {
+            display: block;
+        }
+        ul li a{
+            display: block;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            padding: 3px;
+            text-decoration: none;
+            color: #777;
+        }
+        ul li a:hover{
+            background-color: #f4f4f4;
+        } */
+        /* 纵向导航 */
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 130px;
+            border-bottom: 1px solid #ccc;
+            font-size: 12px;
+        }
+        ul li {
+            position: relative;
+        }
+        li ul {
+            position: absolute;
+            left: 129px;
+            top: 0;
+            display: none;
+        }
+        ul li a {
+            display: block;
+            text-decoration: none;
+            color: #777;
+            background: #fff;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-bottom: 0;
+        }
+        li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li>
+            <a href="">基本信息</a>
+            <ul>
+                <li><a href="">学校管理</a></li>
+                <li><a href="">函授站管理</a></li>
+                <li><a href="">专业管理</a></li>
+                <li><a href="">课程管理</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">报名管理</a>
+            <ul>
+                <li><a href="">报名审核</a></li>
+                <li><a href="">报缴信息管理</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">考试管理</a>
+            <ul>
+                <li><a href="">考场安排</a></li>
+                <li><a href="">场次设置</a></li>
+                <li><a href="">成绩管理</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avalon</title>
+    <style>
+        .list {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div :controller="pageVM">
+        <ul class="list" id="list">
+            <li :for="i in @listData">
+                {{i}}
+            </li>
+        </ul>
+        <input  :duplex="searchStr" ms-on-keyup="@searchCourse_c">
+        <input type="date" name="" id="aaa" >
+        <div :html="aaa | parse | sanitize"></div>
+    </div>
+    <script src="./avalon.js"></script>
+    <script>
+        
+        let data = []
+        let pageSize = 20
+        let prevY = 0
+        //制造假数据
+        let mockData = () => {
+            for (let i = 0; i < 200000; i++) {
+                data.push(i)
+            }
+            // loopNum = data.length / dataCount
+            // loop()
+        }
+        mockData()
+        var pageVM = avalon.define({
+            $id: 'pageVM',
+            allData: [],
+            listData: [],
+            searchStr: '',
+            aaa: "",
+            getSeven: function () {
+                pageVM.allData = data.filter(item => item.toString().indexOf('7') > -1)
+                resetScroll()
+                pageVM.listData = pageVM.allData.slice(0, pageSize)
+            },
+            searchCourse_c: debounce(function () {
+                pageVM.allData = data.filter(item => item.toString().indexOf(pageVM.searchStr) > -1)
+                resetScroll()
+                pageVM.listData = pageVM.allData.slice(0, pageSize)
+            }, 500)
+        });
+        pageVM.aaa = "<p class=\"suojin\">3＞5＞2＞4＞1</p><p class=\"suojin\"><img src=\"http://otsstatic.chinaedu.net/ots/garden/images/2019/0524/1558677305717027629.png\" title=\"1558677305717027629.png\" alt=\"image.png\"/></p>"
+        pageVM.searchCourse_c()
+        var element = document.getElementById('list')
+        element.onscroll = function() {
+            if (element.scrollTop + element.clientHeight == element.scrollHeight && element.scrollTop > prevY) {
+                prevY = document.getElementById('list').scrollTop
+                console.log(1)
+                pageVM.listData = pageVM.allData.slice(0, pageVM.listData.length + pageSize)
+            }
+            // console.log(element.scrollHeight)
+        }
+        function debounce (fn, delay) {
+            let timer = null
+            return function() {
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(fn, delay)
+            }
+        }
+        function resetScroll () {
+            prevY = 0
+            element.scrollTop = 0
+        }
+        document.getElementById('aaa').value = '2109-09-23'
+        document.getElementById('aaa').onchange = function (e) {
+            console.log(document.getElementById('aaa').value)
+        }
+    </script>
+</body>
+</html>

@@ -4,70 +4,70 @@
  * allowCut: num 允许切屏次数 num
  * callback: function 超过切屏后执行的函数 function
  */
-function cutScreen(allowCut, callback) {
+ function cutScreen(allowCut, callback, blurFn) {
     if (typeof allowCut !== 'number') throw new Error('cutScreen第一个参数必须为整数')
     if (callback && Object.prototype.toString.call(callback) !== '[object Function]') throw new Error('cutScreen第二个参数必须为函数')
-    var cutNum = 0;
-    var screenOut = true;
-
-    document.body.onblur = function () {
-        //处理iframe触发blur事件
-        if (document.hasFocus()) {
-            return
+    if (blurFn && Object.prototype.toString.call(blurFn) !== '[object Function]') throw new Error('cutScreen第三个参数必须为函数')
+    if (!blurFn) {
+        var blurFn = function () {
+            // console.log(cutNum)
+            console.log("考试期间不允许切换网页，超过3次将自动提交！")
         }
+    }    
+    var dealNum = function () {
+        console.log(cutNum)
         if ( cutNum >= allowCut) {
             // console.log('自动提交');
             callback && callback()
-            document.body.onblur = null
-            document.body.onfocus = null
+            destoryCutScreen()
             return 
         }
         cutNum++;
-        // data_arguments.screenOut = true;
-        // console.log(data_arguments.cutNum);
-        // console.log("jsjsjsjsjj");
     }
-    document.body.onfocus=function () {
-        if(!screenOut){
+    var cutNum = 0;
+    var screenOut = false;
+    document.addEventListener("visibilitychange", function() {
+        // console.log('hiddddddddd')
+        if(document.visibilityState == 'hidden' && !screenOut) { 
+            console.log('hiddddddddd')
+            screenOut = true;
+            console.log('第二次vvv')
+            dealNum()
+        }
+        if(document.visibilityState == 'visible' && screenOut) {
+            blurFn()
+        }
+    });
+    // document.body.addEventListener('blur', function () {
+
+    // });
+    document.body.onblur = function () {
+        console.log('blurrrrrrr')
+        //处理iframe触发blur事件
+        // console.log(document.hasFocus())
+        if (document.hasFocus()) {
+            screenOut = false;
             return
         }
-        //每次切屏回来提示
-        console.log(cutNum)
-        console.log("考试期间不允许切换网页，超过3次将自动提交！")
-        // data_arguments.screenOut = false;
+        screenOut = true;
+        console.log('第一次')
+        dealNum()
+        
     }
+    // document.body.onfocus=function (isFrame) {
+    //     console.log('focussssss')
+    //     if(!screenOut){
+    //         screenOut = true;
+    //         return
+    //     }
+    //     blurFn()
+    // }
+    
 }
-//切屏控制(目前只有原生好使 jq和avalon都有毛病)
-// document.body.onblur=function () {
-//     if(!data_arguments.screenCuttingFlag || !data_arguments.screenBlurFlag){
-//         return;
-//     }
-//     if (document.hasFocus()) {//处理iframe触发blur事件
-//         return;
-//     }
-//     // var allowCut = 3;
-//     if(data_arguments.cutNum>=data_arguments.allowCut){
-//         //调用自动提交
-//         StartAnsFn.submitParam(true);
-//         data_arguments.screenBlurFlag = false;
-//     }
-//     data_arguments.cutNum++;
-//     data_arguments.screenOut = true;
-//     console.log(data_arguments.cutNum);
-//     console.log("jsjsjsjsjj");
-// }
-// document.body.onfocus=function () {
-//     if(!data_arguments.screenCuttingFlag || !data_arguments.screenBlurFlag){
-//         return;
-//     }
-//     if(!data_arguments.screenOut){
-//         return;
-//     }
-//     //每次切屏提示
-//     publicFn.showFloatTipBox("考试期间不允许切换网页，超过3次将自动提交！");
-//     data_arguments.screenOut = false;
-//     console.log("fsfsfsfsfs");
-// }
+function destoryCutScreen () {
+    document.body.onblur = null
+    document.body.onfocus = null
+}
 function callback () {
     console.log('回调成功')
 }

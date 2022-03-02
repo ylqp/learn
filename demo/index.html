@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    #app {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul class="list"></ul>
+  </div>
+
+  <script>
+    window.onload = () => {
+      let data = []
+      let dataCount = 20
+      let loopNum = 0
+      let renderNum = 0
+      let text = 0
+      let listDom = document.querySelector('.list')
+
+      let render = () =>{
+        const fragment = document.createDocumentFragment()
+        for (let i = 0; i < dataCount; i++) {
+          let liDom = document.createElement('li')
+          liDom.innerText = text
+          text++
+          fragment.appendChild(liDom)
+        }
+        listDom.appendChild(fragment)
+        renderNum++
+        loop()
+      }
+
+      let loop = () => {
+        if (renderNum < loopNum) {
+          window.requestAnimationFrame(render)
+        }
+      }
+
+
+      //制造假数据
+      let mockData = () => {
+        for (let i = 0; i < 200000; i++) {
+          data.push(i)
+        }
+        loopNum = data.length / dataCount
+        loop()
+      }
+
+      mockData()
+
+    }
+  </script>
+</body>
+</html>

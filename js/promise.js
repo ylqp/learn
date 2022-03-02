@@ -131,3 +131,76 @@
 // }).then(() =>{
 //   console.log(6);
 // })
+
+// const p1 = new Promise(function (resolve, reject) {
+//     // setTimeout(() => reject(new Error('fail')), 3000)
+//     setTimeout(() => { resolve(2); console.log(1) }, 2000)
+// })
+  
+// const p2 = new Promise(function (resolve, reject) {
+//     setTimeout(() => resolve(p1), 1000)
+// })
+  
+//   p2
+//     .then(result => console.log(result))
+//     .catch(error => console.log(error))
+
+// new Promise((resolve, reject) => {
+//     resolve(1);
+//     console.log(2);
+//   }).then(r => {
+//     console.log(r);
+//     console.log(3)
+//   });
+
+// const someAsyncThing = function() {
+//   return new Promise(function(resolve, reject) {
+//     // 下面一行会报错，因为x没有声明
+//     resolve(x + 2);
+//   });
+// };
+
+// someAsyncThing().then(function() {
+//   console.log('everything is great');
+// });
+
+// setTimeout(() => { console.log(123) }, 2000);
+
+// const promise = new Promise(function (resolve, reject) {
+//   resolve('ok');
+//   setTimeout(function () { throw new Error('test') }, 0)
+// });
+// promise.then(function (value) { console.log(value) });
+
+// const someAsyncThing = function() {
+//   return new Promise(function(resolve, reject) {
+//     // 下面一行会报错，因为x没有声明
+//     resolve(x + 2);
+//   });
+// };
+
+// someAsyncThing()
+// .catch(function(error) {
+//   console.log('oh no', error);
+// })
+// .then(function() {
+//   console.log('carry on');
+// });
+
+// const p = Promise.resolve();
+
+// p.then(function () {
+//   // ...
+//   console.log(3)
+// });
+// console.log(1)
+
+setTimeout(function () {
+  console.log('three');
+}, 0);
+
+Promise.resolve().then(function () {
+  console.log('two');
+});
+
+console.log('one');

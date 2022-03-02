@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+    <style>
+        #nav {
+            height: 26px;
+            border-bottom: 2px solid #2788da;
+            list-style: none;
+        }
+        #nav li {
+            float: left;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #nav li a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            width: 97px;
+            height: 22px;
+            padding-top: 4px;
+            text-align: center;
+            background-color: #ececec;
+            margin-left: 2px;
+        }
+        #nav li a#current {
+            background-color: #2788da;
+            color: #fff;
+        }
+        #nav li a:hover {
+            background-color: #bbb;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="#" id="current">首页</a></li>
+        <li><a href="#">基础设置</a></li>
+        <li><a href="#">报名设置</a></li>
+        <li><a href="#">考试设置</a></li>
+        <li><a href="#">系统设置</a></li>
+    </ul>
+</body>
+</html>

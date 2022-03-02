@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        #category{
+            width: 100px;
+            /* border-right: 1px solid #c5c6c4;
+            border-bottom: 1px solid #c5c6c4;
+            border-left: 1px solid #c5c6c4; */
+            border-color: #c5c6c4;
+            border-style: solid;
+            border-width: 0px 1px 1px 1px;
+            height: 300%;
+        }
+        #category h1,#category h2{
+            margin: 0px;
+            padding: 4px;
+            font-size: 12px;
+        }
+        #category h1{
+            font-weight: bold;
+            border-top: 1px solid #c5c6c4;
+            background-color: #f4f4f4;
+        }
+        #category h2{
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="category">
+        <h1>css</h1>
+        <h2>css入门</h2>
+        <h2>css进阶</h2>
+        <h2>css高级技巧</h2>
+        <h1>webUI</h1>
+        <h2>理论知识</h2>
+        <h2>实战应用</h2>
+        <h2>高级技巧</h2>
+        <h1>DOM</h1>
+        <h2>DOM入门</h2>
+        <h2>DOM进阶</h2>
+        <h2>DOM高级技巧</h2>
+        <h1>XHTML</h1>
+        <h2>XHTML参考手册</h2>
+        <h2>XHTML论坛</h2>
+    </div>
+    <script>
+        function showTop () {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            console.log(`滚动条位置${scrollTop}`)
+        }
+        
+        function debounce (fn, delay) {
+            let timer = null
+            return function() {
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(fn, delay)
+            }
+        }
+        // 节流
+        function throttle (fn, delay) {
+            let valid = true
+            return function () {
+                if (!valid) {
+                    // 休息时间 暂不接客
+                    return false
+                }
+                // 工作时间，执行函数并且在间隔期内把状态位设为无效
+                valid = false
+                setTimeout(() => {
+                    fn()
+                    valid = true
+                }, delay)
+            }
+        }
+        window.onscroll = throttle(showTop, 1000)
+    </script>
+</body>
+</html>

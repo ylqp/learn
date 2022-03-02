@@ -34,7 +34,7 @@ function getRandomMoney(remainMoney,remainSize){
       moneyList.push(Math.round(remainMoney*100)/100);
       return moneyList;
     }
-    const testCount=2;   //测试次数
+    const testCount=10;   //测试次数
     const maxMoney=100;   //红包总金额
     const maxSize=2;    //红包个数
     let result=[];  //结果集

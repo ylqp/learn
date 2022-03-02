@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器级别</title>
+    <style>
+        h1{
+            color: rgb(29, 209, 119);
+        }
+        h1#content.class{
+            color:skyblue
+        }
+        h1#content{
+            color: green;
+        }
+        #content{
+            color: blue;
+        }
+        h1#content:hover{
+            color: red;
+        }
+        a:link{
+            color: black;
+        }
+        a:active{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="content" class="class">222222222222222</h1>
+    <a href="">按标签</a>
+</body>
+</html>

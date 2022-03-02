@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        /* 单列布局 */
+        /* #layout-1{
+            background-color: #ccc;
+            border: 2px solid #333;
+            width: 80%;
+            height: 300px;
+            margin: 0 auto;
+        } */
+        /* 二列布局 */
+        /* #left{
+            background-color: #ccc;
+            border: 2px solid #333;
+            width: 300px;
+            height: 300px;
+            float: left;
+        }
+        #right{
+            background-color: #ddd;
+            border: 2px solid #333;
+            height: 300px;
+        } */
+        /* 三列布局 */
+        #left {
+            background-color: #ccc;
+            border: 2px solid #333; 
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100px;
+            height: 100%;
+
+        }
+        #right {
+            background-color: #ccc;
+            border: 2px solid #333;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100px;
+            height: 300px;
+        }
+        #center {
+            background-color: #ddd;
+            margin-left: 104px;
+            margin-right: 104px;
+        }
+        /* 网页布局 */
+        #container{
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- 单列布局 -->
+    <!-- <div id="layout-1"></div> -->
+    <!-- 二列布局 -->
+    <!-- <div id="layout-2"></div> -->
+    <!-- <div id="left">左栏</div>
+    <div id="right">右栏</div> -->
+    <!-- 三列布局 -->
+    <div>
+        <div id="left"></div>
+        <div id="center"><img src="../img/icon-menu.png" alt="123" title="123"></div>
+        <div id="right"></div>
+    </div>
+    <!-- 网站布局 -->
+    <!-- <div id="container">
+        <div id="topBar">topBar</div>
+        <header>header</header>
+        <div id="betaNotice">tips</div>
+        <div id="primary">left</div>
+        <div id="magic-1024">right</div>
+        <footer>footer</footer>
+    </div> -->
+</body>
+</html>

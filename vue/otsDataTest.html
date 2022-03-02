@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <div v-html="message"></div>
+        <button @click="changeMsg">改变</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: '0<.x  <3'
+            },
+            // template: '<div>我是模板内的{{message}}</div>',
+            methods: {
+                changeMsg () {
+                    this.message = 'change'
+                }
+            },
+            beforeCreate() {
+                console.log('------初始化前------')
+                console.log(this.message)
+                console.log(this.$el)
+            },
+            created () {
+                console.log('------初始化完成------')
+                console.log(this.message)
+                console.log(this.$el)
+            },
+            beforeMount () {
+                console.log('------挂载前---------')
+                console.log(this.message)
+                console.log(this.$el)
+            },
+            mounted () {
+                console.log('------挂载完成---------')
+                console.log(this.message)
+                console.log(this.$el)
+            },
+            beforeUpdate () {
+                console.log('------更新前---------')
+                console.log(this.message)
+                console.log(this.$el)
+            },
+            updated() {
+                console.log('------更新后---------')
+                console.log(this.message)
+                console.log(this.$el)
+            }
+        })
+    </script>
+</body>
+</html>

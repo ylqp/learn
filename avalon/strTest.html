@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div :controller="pageVM">
+    <div :html="aaa | parse | sanitize"></div>
+    <div class="parseHtml"> 1 </div>
+    <div class="aa"> 2 </div>
+    <div class="aa"> 2 </div>
+    <div class="aa"> 2 </div>
+    <div id="aa"> 2 </div>
+</div>
+  <script src="./jquery-1.11.1.min.js"></script>
+  <script src="./avalon.js"></script>
+  <script>
+    // console.log(avalon)
+    window.onload = function () {
+      console.log($('.parseHtml'))
+      console.log($('.parseHtml').eq(0))
+      console.log($('.parseHtml').html())
+      $('.aa').html('hhhhhhhhhhhhhhhhhhhhhhhhh')
+      console.log($('#aa').html())
+      avalon.filters.parse = function (str) {
+        console.log(str)
+        var dom1 = $(".parseHtml");
+        dom1.html(str);
+        var txt1 = dom1.html();
+        dom1.html("");
+        str = txt1;
+        console.log(str)
+        return str;
+      };
+      
+      pageVM.aaa = "<div  class='banking'><span class='fl mr5'>①:</span>t<sub>A< </sub>t<sub>m</sub></div>"
+    }
+  </script>
+  <script>
+    var pageVM = avalon.define({
+        $id: 'pageVM',
+        aaa: "",
+      })
+  </script>
+</body>
+</html>
