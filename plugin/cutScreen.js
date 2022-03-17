@@ -25,44 +25,62 @@
         cutNum++;
     }
     var cutNum = 0;
+    var isFrame = true;
     var screenOut = false;
     document.addEventListener("visibilitychange", function() {
-        // console.log('hiddddddddd')
-        if(document.visibilityState == 'hidden' && !screenOut) { 
-            console.log('hiddddddddd')
-            screenOut = true;
-            console.log('第二次vvv')
-            dealNum()
-        }
-        if(document.visibilityState == 'visible' && screenOut) {
-            blurFn()
-        }
+        // if (document.visibilityState == 'hidden' && isFrame) {
+        //     screenOut = true
+        //     console.log('hiddddddddd')
+        // }
+
+        // if (document.visibilityState == 'visible' && screenOut) {
+        //     console.log('提示')
+        // }
+        
+        if (isFrame) {// 如果焦点在iframe上
+            if (document.visibilityState == 'hidden') {
+                console.log('切出去了')
+            } else {
+                console.log('提示')
+            }
+        }   
     });
     // document.body.addEventListener('blur', function () {
 
     // });
     document.body.onblur = function () {
-        console.log('blurrrrrrr')
-        //处理iframe触发blur事件
-        // console.log(document.hasFocus())
         if (document.hasFocus()) {
-            screenOut = false;
-            return
+            isFrame = true
+            // document.body.onfocus()
+        } else {
+            console.log('切出去了')
         }
-        screenOut = true;
-        console.log('第一次')
-        dealNum()
         
     }
-    // document.body.onfocus=function (isFrame) {
-    //     console.log('focussssss')
-    //     if(!screenOut){
-    //         screenOut = true;
-    //         return
+    document.body.onfocus=function () {
+        if (isFrame) {
+            isFrame = false;
+        } else {
+            console.log('提示')
+        }
+    }
+
+    // window.addEventListener('focus', function() {
+    //     if (isFrame) {
+    //         isFrame = false;
+    //     } else {
+    //         console.log('提示')
     //     }
-    //     blurFn()
-    // }
-    
+        
+    // })
+    // window.addEventListener('blur', function() {
+    //     if (document.hasFocus()) {
+    //         isFrame = true
+    //     } else {
+    //         console.log('切出去了')
+    //     }
+        
+    // })
 }
 function destoryCutScreen () {
     document.body.onblur = null
