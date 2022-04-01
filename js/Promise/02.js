@@ -98,20 +98,39 @@
 // });
 
 
-Promise.prototype.finally = function (callback) {
-  let P = this.constructor;
-  return this.then(
-    value  => P.resolve(callback()).then(() => value),
-    reason => P.resolve(callback()).then(() => { throw reason })
-  );
-};
+// Promise.prototype.finally = function (callback) {
+//   let P = this.constructor;
+//   return this.then(
+//     value  => P.resolve(callback()).then(() => value),
+//     reason => P.resolve(callback()).then(() => { throw reason })
+//   );
+// };
 
-function A () {
-  let a = this.constructor
+// function A () {
+//   let a = this.constructor
   
-}
-A()
+// }
+// A()
 // console.log(new A() instanceof A() === true)
 
 
 
+// const p1 = new Promise((resolve, reject) => {
+//   resolve('hello');
+// })
+// .then(result => result)
+// .catch(e => e);
+
+// const p2 = new Promise((resolve, reject) => {
+//   throw new Error('报错了');
+// })
+// .then(result => result)
+// // .catch(e => e);
+
+// Promise.all([p1, p2])
+// .then(result => console.log(result))
+// .catch(e => console.log(e));
+
+const f = () => console.log('now');
+Promise.try(f);
+console.log('next');
